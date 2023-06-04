@@ -36,11 +36,15 @@ def prime():
     return prime()
 
   f = ''
-  for i in range(2, int(n/2) + 1):
-    if n % i == 0:
+  a = 2
+  while a < int(n/2) + 1:
+    if n % a == 0:
       f = True
+      break
+    a += 1
 
   if f:
     print(f'The number {n} is not prime')
   else:
     print(f'The number {n} is prime')
+
