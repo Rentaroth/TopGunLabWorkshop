@@ -13,4 +13,4 @@ class TestBestPractice(unittest.TestCase):
     self.assertEqual(result, f'The word "{word}" is not palindrome')
 
 if __name__ == "__main__":
-  unittest.main
+  unittest.main()
