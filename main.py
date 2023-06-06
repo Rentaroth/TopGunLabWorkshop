@@ -5,6 +5,10 @@ if __name__ == "__main__":
   print(s)
   x = best_practices.is_palindrome('petalo')
   print(x)
+  v = best_practices.is_palindrome(123)
+  print(v)
+  v = best_practices.is_palindrome('123')
+  print(v)
 
   print('\n' + '*****************'*10 + '\n')
 

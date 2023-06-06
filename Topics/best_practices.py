@@ -1,5 +1,8 @@
 import time
 
+class IsNumeric(Exception):
+  pass
+
 # Write a Python function called is_palindrome that checks if a given word is a palindrome. The function should have proper error handling and be tested with unittest
 def is_palindrome(word: str):
   '''
@@ -16,23 +19,45 @@ def is_palindrome(word: str):
   Example:
   __________________
     is_palindrome('ana') -> 'The word "ana" is palindrome'
+
+  Note:
+    Error handling is working to be sure the parameter "word" is a string and even not a numeric string.
+    The test is in the file test_best.py onthe root of the branch.
   '''
-  rev = list(word.lower())
-  rev.reverse()
-  pal = ''
-  for i in rev:
-    pal += i
-  if pal == word:
-    return f'The word "{word}" is palindrome'
-  else:
-    return f'The word "{word}" is not palindrome'
+  try:
+    if type(word) != str:
+      raise TypeError('Input must be a string.')
+    case = list(word)
+    verification = False
+    for i in case:
+      if i.isnumeric():
+        verification = True
+        break
+    if verification:
+      raise IsNumeric('The string must not have numeric characters')
+    rev = list(word.lower())
+    rev.reverse()
+    pal = ''
+    for i in rev:
+      pal += i
+    if pal == word:
+      return f'The word "{word}" is palindrome'
+    else:
+      return f'The word "{word}" is not palindrome'
+  except Exception as err:
+    print(f'Something went wrong: {err}')
 
 
 # Create a Python decorator called timer that measures the time taken to execute a function. Use this decorator on a function that sorts a list of random numbers and prints the sorted list.
 
-
 def func_timer(function):
+  '''
+    Decorator used to transfer the arguments and execution to the function "Temp".
+  '''
   def temp(*args):
+    '''
+      Measures the time a function takes to execute and then prints it. Captures the return of the internal function and returns it as his own.
+    '''
     start = time.time()
     res = function(*args)
     final = time.time() - start
