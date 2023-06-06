@@ -15,6 +15,18 @@ class BankAccount:
     }
 
   def depositing(self, deposit):
+    '''
+      Generates an increment in user funds.
+
+      Is meant to add the amount the user deposit in funds and saves the history of deposits in '__historial' hidden attribute.
+      __________________________________________________________________________________________
+      parameters:
+        deposit:
+          The amount user want to save in funds attribute.
+      __________________________________________________________________________________________
+      example:
+        <instance>.depositing(100)
+    '''
     if deposit < 10:
       return f"Deposits must be higher than 10 USD"
     self.funds += deposit
@@ -23,6 +35,19 @@ class BankAccount:
     return f"Your remaining funds are: {self.funds}"
 
   def withdrawing(self, withdraw):
+    '''
+      Generates a loss in user funds.
+
+      Is meant to reduce the amount the user withdraw in funds and saves the history of deposits in '__historial' hidden attribute.
+      Te max amount permitted to withdraw is 10 usd. It is impossible to take more than user have in his funds.
+      __________________________________________________________________________________________
+      parameters:
+        withdraw:
+          The amount user want to take from funds attribute.
+      __________________________________________________________________________________________
+      example:
+        <instance>.withdrawing(100)
+    '''
     if withdraw > self.funds:
       return f"Insuficient funds"
     if withdraw < 10:
@@ -33,18 +58,38 @@ class BankAccount:
     return f"Your remaining funds are: {self.funds}"
 
   def checking(self):
+    '''
+      Generates a balance of user movements.
+
+      Is meant to generate a balance from all user movements.
+      __________________________________________________________________________________________
+      parameters:
+        none
+      __________________________________________________________________________________________
+      example:
+        <instance>.checking()
+    '''
     self.__historial['balance'] = self.__historial['incomes'] - self.__historial['expenses']
     return f"Your balance is: {self.__historial}"
 
 # Create a Python program that reads a text file and counts the occurrences of each word using a dictionary. The program should print the words and their counts.
 
-def read_file(txt):
-  with open(txt, 'r') as file:
-    return file.read()
+def words_cleaner(txt):
+  '''
+    Function created only for clean data from the text file readed in function 'read_file'.
 
-char = ['.', ',', ';', ':']
-def words_cleaner(file):
-  text = read_file(file)
+    In order to give clean data to the function 'words_counter' this function is deleting all the commas, points and remaining punctuation marks in words after split them by the spaces between.
+    _____________________________________________________________________
+    parameters:
+      file:
+        The txt file route user want to check
+
+    example:
+      words_cleaner('./file.txt')
+  '''
+  char = ['.', ',', ';', ':']
+  with open(txt, 'r') as file:
+    text = file.read()
   text = text.lower()
   words = text.split(' ')
   for i in words:
@@ -57,10 +102,23 @@ def words_cleaner(file):
       for j in n:
         words.insert(words.index(i), j)
       words.pop(words.index(i))
-  ws = set(words)
-  words_counter(ws, words)
+  words_counter(words)
 
-def words_counter(wset, words):
+def words_counter(words):
+  '''
+      Counts the ocurrences of each word in a list of words.
+
+      This functions was created to be called by 'words_cleaner' function but it can take parameters by itself.
+      ________________________________________________________________________________
+      parameters:
+        words:
+          A list of the words in the text user want to check.
+      ________________________________________________________________________________
+      Examples:
+        words_counter(['time', 'to', 'sleep', 'to', 'get', 'up', 'early'])
+
+  '''
+  wset = set(words)
   counter = {}
 
   for word in wset:
