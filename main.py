@@ -1,4 +1,4 @@
-from Topics import advanced_concepts, best_practices, control_n_loops
+from Topics import advanced_concepts, best_practices, control_n_loops, functions_n_types
 
 if __name__ == "__main__":
 
@@ -10,18 +10,18 @@ if __name__ == "__main__":
   a = bank.checking()
   print(a)
 
-  print('\n' + '*********'*10 + '\n')
-  advanced_concepts.words_cleaner('./Topics/text.txt')
+  # print('\n' + '*********'*10 + '\n')
+  # advanced_concepts.words_cleaner('./Topics/text.txt')
 
   #Best Practices
   s = best_practices.is_palindrome('reconocer')
   print(s)
-  x = best_practices.is_palindrome('petalo')
-  print(x)
-  v = best_practices.is_palindrome(123)
-  print(v)
-  v = best_practices.is_palindrome('123')
-  print(v)
+  # x = best_practices.is_palindrome('petalo')
+  # print(x)
+  # v = best_practices.is_palindrome(123)
+  # print(v)
+  # v = best_practices.is_palindrome('123')
+  # print(v)
 
   print('\n' + '*****************'*10 + '\n')
 
@@ -30,8 +30,15 @@ if __name__ == "__main__":
 
   # Control structures and loops
   
-  topic_2_1 = control_n_loops.fibo()
+  # topic_2_1 = control_n_loops.fibo()
 
   topic_2_2 = control_n_loops.prime()
 
+  # Functions and types
+
+  # e = functions_n_types.find_maximum([1, 4, 7, 5, 34, 723, 51])
+  # print(e)
+
+  f = functions_n_types.reverse_string('tangamandapio')
+  print(f)
   
