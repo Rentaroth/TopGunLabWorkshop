@@ -1,4 +1,4 @@
-from Topics import advanced_concepts, best_practices
+from Topics import advanced_concepts, best_practices, control_n_loops
 
 if __name__ == "__main__":
 
@@ -27,3 +27,11 @@ if __name__ == "__main__":
 
   k = best_practices.order([2, 4, 6, 3, 3, 65, 341342314, 12341234, 35144262346, 52354, 123453425134, 235463456, 324523462346, 8, 4, 0, 3, 4, 2])
   print(k)
+
+  # Control structures and loops
+  
+  topic_2_1 = control_n_loops.fibo()
+
+  topic_2_2 = control_n_loops.prime()
+
+  
