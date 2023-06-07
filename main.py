@@ -1,4 +1,4 @@
-from Topics import advanced_concepts, best_practices, control_n_loops, functions_n_types
+from Topics import advanced_concepts, best_practices, control_n_loops, functions_n_types, getting_started
 
 if __name__ == "__main__":
 
@@ -41,4 +41,11 @@ if __name__ == "__main__":
 
   f = functions_n_types.reverse_string('tangamandapio')
   print(f)
-  
+
+  # Getting started with Python
+
+  a = getting_started.sum()
+  print(a)
+
+  # b = getting_started.toCelcius()
+  # print(b)
