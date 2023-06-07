@@ -14,7 +14,6 @@ if __name__ == "__main__":
   advanced_concepts.words_cleaner('./Topics/text.txt')
 
   #Best Practices
-
   s = best_practices.is_palindrome('reconocer')
   print(s)
   x = best_practices.is_palindrome('petalo')
